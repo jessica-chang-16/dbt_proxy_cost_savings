@@ -1,0 +1,12 @@
+# Environments
+dbt-env/
+venv/
+env/
+
+# dbt specific
+target/
+dbt_packages/
+logs/
+
+# Secrets
+*.json
