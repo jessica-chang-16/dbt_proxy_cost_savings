@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: raw_data
+    database: cost-savings-tl
+    schema: raw_data
+    tables:
+      - name: raw_client_data
