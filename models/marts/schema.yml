@@ -2,25 +2,43 @@ version: 2
 
 models:
   - name: fct_outreach_target_list
+    description: >
+      This model identifies retailers whom are under established client relationships with our company but are using third party proxies.
+      It joins the proxy exepction logic with client info and region info.
     columns:
       - name: brand
+        description: >
+          The brand related to speicic retailer.
         data_tests:
           - not_null
       - name: region_abv
+        description: >
+          The abbreviated region code.
         data_tests:
           - not_null
       - name: whitelisted
+        description: >
+          Tells whether the retailer is whitelisted or not.
         data_tests:
           - not_null
       - name: proxy
+        description: >
+          Tells whether the retailer is currently using a proxy or not.
+          NOTE: This is currently containing NULLs from the source, causing test failures.
         data_tests:
           - not_null
 
   - name: dim_retailers
+    description: >
+      This model identifies the one source of truth for retailer information.
     columns:
       - name: retailer
+        description: >
+          Contains the retailer name.
         data_tests:
           - not_null
       - name: brand_region
+        description: >
+          Contains the individual region of the brand.
         data_tests:
           - not_null

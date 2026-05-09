@@ -2,6 +2,8 @@ version: 2
 
 sources:
   - name: raw_data
+    description: >
+      raw data file containing the retailer information and whether it is whitelisted or not.
     database: cost-savings-tl
     schema: raw_data
     tables:

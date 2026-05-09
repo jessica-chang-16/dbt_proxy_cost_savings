@@ -2,6 +2,8 @@ version: 2
 
 sources:
   - name: raw_data
+    description: >
+      raw data file containing retailer and proxy information.
     database: cost-savings-tl
     schema: raw_data
     tables:
