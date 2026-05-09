@@ -14,9 +14,9 @@ The focus of the project is to create a target list of clients where we are curr
 #### Data Architecture & Modeling:
 This project follows a modular, three-tier architecture designed for scalability and maintainability. 
 
-  - Staging Layer (stg_): Cleans and standardizes raw CSV data from Google Sheets. Handles renaming, type casting, and initital filtering to ensure a clean starting point.
-  - Intermediate Layer (int_): Performs core business logic and joins (int_proxy_exception) with client metadata to isolate high-cost proxy dependant crawlers.
-  - Marts Layer (fct_,dim_):
+  - Staging Layer (`stg_`): Cleans and standardizes raw CSV data from Google Sheets. Handles renaming, type casting, and initital filtering to ensure a clean starting point.
+  - Intermediate Layer (`int_`): Performs core business logic and joins (`int_proxy_exception`) with client metadata to isolate high-cost proxy dependant crawlers.
+  - Marts Layer (`fct_`, `dim_`):
     - fct_outreach_target_list: This is the centralized fact table used for reporting and outreach prioritization.
     - dim_retailers: This is a dimension table that provides the single source of truth for retailer attributes. 
 
