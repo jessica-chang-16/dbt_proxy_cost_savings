@@ -12,6 +12,8 @@ The focus of the project is to create a target list of clients where we are curr
     
 
 #### Data Architecture & Modeling:
+![Data lineage graph](cost_savings_data_lineage.png)
+
 This project follows a modular, three-tier architecture designed for scalability and maintainability. 
 
   - Staging Layer (`stg_`): Cleans and standardizes raw CSV data from Google Sheets. Handles renaming, type casting, and initital filtering to ensure a clean starting point.
