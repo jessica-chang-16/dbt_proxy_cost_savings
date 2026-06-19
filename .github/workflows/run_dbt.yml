@@ -1,0 +1,36 @@
+name: dbt Daily Run 
+#1 The Schedule
+on:
+  schedule:
+  # Runs at 12:00 AM UTC every day
+    - cron: '0 0 * * *'
+  # Allows me to click button in GitHub to run it manually anytime
+  workflow_dispatch:
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    #2 Checkout my code
+    - name: Checkout repository
+      uses: actions/checkout@v3
+    #3 Setup Python
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.12'
+    #4 Install dbt and BigQuery adapter
+    - name: Install dependencies
+      run: |
+        pip install dbt-bigquery
+    #5 Authenticate with Google Cloud 
+    - name: Authenticate to Google Cloud
+      uses: google-github-actions/auth@v1
+      with:
+        credentials_json ${{ secrets.GCP_CREDENTIALS }}
+    #6 Run the pipeline
+    - name: Execute dbt build
+      run: dbt build --profiles-dir .
+      env:
+        # Pass any needed environment variables
+        GCP_PROJECT: cost-savings-tl
