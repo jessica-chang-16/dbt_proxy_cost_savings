@@ -1,10 +1,10 @@
 version: 2
 
 sources:
-  - name: raw_data
+  - name: google_sheets_raw_proxy
     description: >
-      raw data file containing retailer and proxy information.
+      This is the raw data file containing retailer and proxy information. If tested in this yml file, it will test the raw data straight from bigquery before staging layer.
     database: cost-savings-tl
-    schema: raw_data
+    schema: analytics
     tables:
       - name: proxy_raw_data

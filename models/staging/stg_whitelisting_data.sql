@@ -3,15 +3,15 @@
 WITH whitelisting as(
     SELECT
         *
-    FROM {{source('raw_data', 'raw_client_data')}}
+    FROM {{source('google_sheets_raw_clients', 'raw_client_data')}}
 ),
 renamed as (
     SELECT 
-        `company name` as retailer,
-        SPLIT(slug,'-') [OFFSET(0)] AS brand,
-        SPLIT(slug,'-') [OFFSET(1)] AS region_abv,
-        slug as brand_region,
-        whitelisted
+        Company_name as retailer,
+        SPLIT(Slug,'-') [OFFSET(0)] AS brand,
+        SPLIT(Slug,'-') [OFFSET(1)] AS region_abv,
+        Slug as brand_region,
+        Whitelisted
     FROM whitelisting
 ),
 

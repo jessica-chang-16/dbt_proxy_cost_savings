@@ -1,0 +1,33 @@
+version: 2
+
+models:
+  - name: stg_proxy_data
+    description: >
+      Cleaned and standardized proxy data
+    columns:
+      - name: brand
+        description: >
+          The brand related to specific retailer.
+        data_tests:
+          - not_null
+      - name: proxy
+        description: >
+          Name of the third-party proxy that is being used on this specific retailer.
+        data_tests:
+          - not_null
+
+
+  - name: stg_whitelisting_data
+    description: >
+      Cleaned and standardized client whitelisting data
+    columns:
+      - name: brand_region
+        description: >
+          The brand and region related to specific retailer.
+        data_tests:
+          - not_null
+      - name: whitelisted
+        description: >
+          Tells whether or not the specific brand and region is whitelisted or not.
+        data_tests:
+          - not_null
