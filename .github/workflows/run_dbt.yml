@@ -44,7 +44,7 @@ jobs:
               threads: 4
               timeout_seconds: 300
               location: US
-        "> ~/.dbt/profiles.yml"
+        "> ~/.dbt/profiles.yml
     #7 Run the pipeline
     - name: Execute dbt build
       run: dbt build --target ci
