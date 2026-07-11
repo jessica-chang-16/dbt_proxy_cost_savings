@@ -51,3 +51,4 @@ jobs:
       env:
         # Pass any needed environment variables
         GCP_PROJECT: cost-savings-tl
+        GOOGLE_APPLICATION_CREDENTIALS: ${{ env.GOOGLE_APPLICATION_CREDENTIALS }}
