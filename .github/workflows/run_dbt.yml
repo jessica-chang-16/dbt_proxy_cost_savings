@@ -33,10 +33,10 @@ jobs:
       run: |
         mkdir -p ~/.dbt
         echo "
-        cost_savings_dbt:
-          target: prod
+        cost_savings:
+          target: ci
           outputs:
-            prod:
+            ci:
               type: bigquery
               method: service-account
               project: cost-savings-tl
