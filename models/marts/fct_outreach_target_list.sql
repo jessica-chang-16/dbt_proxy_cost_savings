@@ -5,7 +5,7 @@ WITH proxy_exception as (
         region,
         whitelisted,
         proxy
-    FROM {{ref('int_proxy_exception')}}
+    FROM {{ref('int_using_proxy')}}
 ),
 
 client_info as (

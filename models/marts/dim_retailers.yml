@@ -1,0 +1,13 @@
+version: 2
+
+models:
+  - name: dim_retailers
+    description: >
+      This model identifies the one source of truth for retailer information.
+    columns:
+      - name: retailer
+        description: >
+          Contains the retailer name.
+      - name: brand_region
+        description: >
+          Contains the individual region of the brand.

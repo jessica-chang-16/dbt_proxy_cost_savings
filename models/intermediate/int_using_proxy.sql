@@ -10,7 +10,7 @@ whitelisting as (
     FROM {{ref('stg_whitelisting_data')}}
 ),
 
-proxy_exception as (
+using_proxy as (
     SELECT
         whitelisting.retailer AS retailer,
         whitelisting.brand AS brand,
@@ -29,7 +29,7 @@ final as (
         region,
         whitelisted,
         proxy
-    FROM proxy_exception
+    FROM using_proxy
 )
 SELECT
     *

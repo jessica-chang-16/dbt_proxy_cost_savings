@@ -10,3 +10,4 @@ logs/
 
 # Secrets
 *.json
+profiles.yml

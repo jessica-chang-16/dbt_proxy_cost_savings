@@ -1,22 +1,15 @@
 version: 2
 
-models:
-  - name: stg_proxy_data
+sources:
+  - name: google_sheets_raw_clients
     description: >
-      Cleaned and standardized proxy data
-    columns:
-      - name: brand
-        description: >
-          The brand related to specific retailer.
-        data_tests:
-          - not_null
-      - name: proxy
-        description: >
-          Name of the third-party proxy that is being used on this specific retailer.
-        data_tests:
-          - not_null
+      raw data file containing the retailer information and whether it is whitelisted or not.
+    database: cost-savings-tl
+    schema: analytics
+    tables:
+      - name: raw_client_data
 
-
+models:
   - name: stg_whitelisting_data
     description: >
       Cleaned and standardized client whitelisting data

@@ -1,0 +1,22 @@
+version: 2
+
+models:
+  - name: int_using_proxy
+    description: >
+      This model implements the business logic to identify the brands and regions that are currently using a third-party proxy that is not whitelisted.
+    columns:
+      - name: retailer
+        description: >
+          Contains the retailer name.
+      - name: brand
+        description: >
+          Contains the individual brand name
+      - name: region
+        description: >
+          Contains the individual region of that brand
+      - name: whitelisted
+        description: >
+          Contains the whitelisting status of the individual brand and region
+      - name: proxy 
+        description: >
+          Contains the proxy name if there is one being used
