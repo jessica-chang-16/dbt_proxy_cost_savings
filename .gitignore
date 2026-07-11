@@ -11,3 +11,4 @@ logs/
 # Secrets
 *.json
 profiles.yml
+.user.yml
