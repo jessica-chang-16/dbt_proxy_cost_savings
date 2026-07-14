@@ -40,5 +40,5 @@ This pipeline follows a modular, three-tier architecture designed for scalabilit
 This dashboard simulates the final stakeholder handoff to the customer success team. The result of completing the data cleaning, joins and logic filtering in the upstream transformation layers, this Data Studio (Looker) dashboard requires zero custom calculated fields. 
 
 By serving the visualization tool a clean, pre-aggregated Star Schema (`fct_outreach_target_list` and `dim_retailers`), the architecture guarantees:
-1. reduced load times and filtered performance for non-technical end users.
+1. Reduced load times and filtered performance for non-technical end users.
 2. A single source of truth that ensures the KPIs on the dashboard always match the underlying BigQuery data warehouse. 
