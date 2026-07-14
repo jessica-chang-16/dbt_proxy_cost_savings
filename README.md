@@ -1,6 +1,12 @@
 ### Proxy Cost Savings Analysis | dbt core, BigQuery, SQL, Data Studio (Looker Studio)
 
-#### Summary:
+#### Business Context:
+This project addresses a specific data operations challenge within a retail intelligence SaaS company. The core business model relies on web-scraping public retailer data to provide insights that drive actionable analytics for users.
+
+#### The Problem:
+To bypass anti-scraping blockers from various retailers, the company relies heavily on expensive third-party proxies. However, if a blocked retailer is already an existing client, we can request direct whitelisting - meaning their IT team recognizes our traffic and allows access without the need for costly proxies. Identifying the overlap between high-cost proxy using scrapers and existing clients to initiate these whitelisting conversations was perviously a manual, error-prone and time-consuming process.
+
+#### The Solution:
 This project transforms a manual, error-prone gap analysis process into a fully automated, modular ELT pipeline. The objective is to identify high-cost web crawlers that are utilizing third-party proxies due to lack of client whitelisting. By isolating these targets, the customer success team can leverage existing relationships to implement direct whitelisting headers, resulting in a direct reduction of third-party proxy costs.
 
 #### Business Impact:
