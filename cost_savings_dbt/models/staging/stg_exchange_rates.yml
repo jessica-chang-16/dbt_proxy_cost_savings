@@ -1,0 +1,16 @@
+version: 2
+
+sources: 
+  - name: api_exchange_rates
+    description: >
+      This is the raw data file for the exchange rate currencies by country that was ingested via a python script called to an API.
+    database: cost-savings-tl
+    schema: analytics
+    tables:
+      - name: exchange_rates
+
+models: 
+  - name: stg_exchange_rates
+    description: >
+      Cleaned and standardized exchange rate data
+      

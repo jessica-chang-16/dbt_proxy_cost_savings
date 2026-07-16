@@ -1,0 +1,8 @@
+#add columns, descriptions, tests
+version: 2
+
+models: 
+  - name: int_average_exchange_rate
+    description: >
+      This model will join the exchange rates of the different countries along with the proxy request amounts to determine the average exchange rate and cost per region.
+    
