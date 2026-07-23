@@ -11,8 +11,31 @@ sources:
     schema: analytics
     tables: 
       - name: proxy_requests_amount
-  
-models: 
+
+models:
   - name: stg_proxy_requests
-    description: >
-      cleaned and standardized proxy request amount per retailer
+    description: cleaned and standardized proxy request amount per retailer
+    columns:
+      - name: month
+        data_type: string
+        description: The month in which each retailer has requested http request to the retailer site using a third-party proxy. The original data field has been converted from daily granularity to monthly granularity.
+
+      - name: brand
+        data_type: string
+        description: Contains the retailer brand name and specific region.
+
+      - name: proxy_type
+        data_type: string
+        description: Contains the name of the third-party proxy that is being used to help crawl that site.
+
+      - name: num_requests
+        data_type: int64
+        description: Contains the number of http requests that are being sent during that crawl session.
+
+      - name: rate_usd_per_1000_requests
+        data_type: float64
+        description: Contains the rate of cost in USD per 1000 requests.
+
+      - name: cost_usd
+        data_type: float64
+        description: Contains the amount of cost in USD for that crawl session per retailer brand.

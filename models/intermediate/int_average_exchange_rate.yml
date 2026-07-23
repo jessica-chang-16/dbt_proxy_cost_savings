@@ -1,8 +1,30 @@
 #add columns, descriptions, tests
 version: 2
 
-models: 
+models:
   - name: int_average_exchange_rate
-    description: >
-      This model will join the exchange rates of the different countries along with the proxy request amounts to determine the average exchange rate and cost per region.
-    
+    description: This model will join the exchange rates of the different countries along with the proxy request amounts to determine exchange rate and cost per region for each crawl session.
+    columns:
+      - name: month
+        data_type: string
+        description: ""
+
+      - name: brand
+        data_type: string
+        description: ""
+
+      - name: country
+        data_type: string
+        description: ""
+
+      - name: cost_country
+        data_type: float64
+        description: ""
+
+      - name: currency
+        data_type: string
+        description: ""
+
+      - name: cost_usd
+        data_type: float64
+        description: ""
