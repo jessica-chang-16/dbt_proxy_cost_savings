@@ -45,6 +45,31 @@ proxy_cost_per_country AS
     FROM country_exchange_rates
     ),
 
+add_proxy_cost_us AS
+  (SELECT month,
+  brand, 
+  CASE WHEN LOWER(SPLIT(brand, '-')[SAFE_OFFSET(1)]) = 'us' THEN 'United States' ELSE country END AS country,
+  CASE WHEN LOWER(SPLIT(brand, '-')[SAFE_OFFSET(1)]) = 'us' THEN cost_usd ELSE cost_country END AS cost_country,
+  CASE WHEN LOWER(SPLIT(brand, '-')[SAFE_OFFSET(1)]) = 'us' THEN 'Dollar'ELSE currency END AS currency,
+  cost_usd
+  FROM proxy_cost_per_country
+  ),
+
+add_proxy_cost_es AS
+ (SELECT month,
+  brand,
+  CASE WHEN LOWER(SPLIT(brand, '-')[SAFE_OFFSET(1)]) = 'es' THEN 'Spain' ELSE country END AS country,
+  CASE WHEN LOWER(SPLIT(brand, '-')[SAFE_OFFSET(1)]) = 'es' THEN (cost_usd*0.88) ELSE cost_country END AS cost_country,
+  CASE WHEN LOWER(SPLIT(brand, '-')[SAFE_OFFSET(1)]) = 'es' THEN 'Euro'ELSE currency END AS currency,
+  cost_usd
+  FROM add_proxy_cost_us
+  ),
+
+proxy_cost_all_countries AS 
+  (SELECT *
+  FROM add_proxy_cost_es
+  ),
+
 final AS
     (SELECT
     month,
@@ -53,7 +78,7 @@ final AS
     cost_country,
     currency,
     cost_usd
-    FROM proxy_cost_per_country
+    FROM proxy_cost_all_countries
     )
 
 SELECT *

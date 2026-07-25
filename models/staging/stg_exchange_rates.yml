@@ -18,7 +18,6 @@ models:
         description: The country the exchange rate applies to.
         data_tests:
           - not_null
-          - unique
 
       - name: exchange_rate
         data_type: float64

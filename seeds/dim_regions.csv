@@ -1,63 +1,63 @@
 region_id,region_name,region_abv
-1, Austria,AT
-2, Belgium,BE
-3, Bulgaria,BG
-4, Switzerland,CH
-5, Czech Republic,CZ
-6, Germany,DE
-7, Denmark,DK
-8, Estonia,EE
-9, Spain,ES
-10, Finland,FI
-11, France,FR
-12, Greece,GR
-13, Croatia,HR
-14, Hungary,HU
-15, Ireland,IE
-16, Iceland,IS
-17, Italy,IT
-18, Lithuania,LT
-19, Luxembourg,LU
-20, Latvia,LV
-21, Netherlands,NL
-22, Norway,NO
-23, Poland,PL
-24, Portugal,PT
-25, Romania,RO
-26, Sweden,SE
-27, Slovakia,SK
-28, Ukraine,UA
-29, United Kingdom,UK
-30, Argentina,AR
-31, Brazil,BR
-32, Canada,CA
-33, Chile,CL
-34, Colombia,CO
-35, Costa Rica,CR
-36, Mexico,MX
-37, Peru,PE
-38, United States,US
-39, Uruguay,UY
-40, Australia,AU
-41, China,CN
-42, Hong Kong,HK
-43, Indonesia,ID
-44, Israel,IL
-45, India,IN
-46, Japan,JP
-47, South Korea,KR
-48, Malaysia,MY
-49, New Zealand,NZ
-50, Philippines,PH
-51, Singapore,SG
-52, Thailand,TH
-53, Taiwan,TW
-54, Vietnam,VN
-55, United Arab Emirates,AE
-56, Egypt,EG
-57, Kenya,KE
-58, Morocco,MA
-59, Nigeria,NG
-60, Qatar,QA
-61, Saudi Arabia,SA
-62, South Africa,ZA
+1,Austria,at
+2,Belgium,be
+3,Bulgaria,bg
+4,Switzerland,ch
+5,Czech Republic,cz
+6,Germany,de
+7,Denmark,dk
+8,Estonia,ee
+9,Spain,es
+10,Finland,fi
+11,France,fr
+12,Greece,gr
+13,Croatia,hr
+14,Hungary,hu
+15,Ireland,ie
+16,Iceland,is
+17,Italy,it
+18,Lithuania,lt
+19,Luxembourg,lu
+20,Latvia,lv
+21,Netherlands,nl
+22,Norway,no
+23,Poland,pl
+24,Portugal,pt
+25,Romania,ro
+26,Sweden,se
+27,Slovakia,sk
+28,Ukraine,ua
+29,United Kingdom,uk
+30,Argentina,ar
+31,Brazil,br
+32,Canada,ca
+33,Chile,cl
+34,Colombia,co
+35,Costa Rica,cr
+36,Mexico,mx
+37,Peru,pe
+38,United States,us
+39,Uruguay,uy
+40,Australia,au
+41,China,cn
+42,Hong Kong,hk
+43,Indonesia,id
+44,Israel,il
+45,India,in
+46,Japan,jp
+47,South Korea,kr
+48,Malaysia,my
+49,New Zealand,nz
+50,Philippines,ph
+51,Singapore,sg
+52,Thailand,th
+53,Taiwan,tw
+54,Vietnam,vn
+55,United Arab Emirates,ae
+56,Egypt,eg
+57,Kenya,ke
+58,Morocco,ma
+59,Nigeria,ng
+60,Qatar,qa
+61,Saudi Arabia,sa
+62,South Africa,za

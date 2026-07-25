@@ -32,7 +32,7 @@ region_info as (
         ci.proxy as proxy,
         ci.account_manager as account_manager,
         ci.csm as csm,
-        LOWER(r.region_name) as region_name
+        r.region_name as region_name
     FROM client_info as ci
     LEFT JOIN {{ref('dim_regions')}} as r
     ON ci.region = r.region_abv
