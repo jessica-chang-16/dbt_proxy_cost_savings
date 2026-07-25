@@ -7,24 +7,32 @@ models:
     columns:
       - name: month
         data_type: string
-        description: ""
+        description: The month the proxy requests were made, carried over from the proxy request data.
+        data_tests:
+          - not_null
 
       - name: brand
         data_type: string
-        description: ""
+        description: The retailer brand associated with the proxy requests.
+        data_tests:
+          - not_null
 
       - name: country
         data_type: string
-        description: ""
+        description: The country the proxy cost is being converted into local currency for, matched via region abbreviation.
 
       - name: cost_country
         data_type: float64
-        description: ""
+        description: The USD proxy cost converted into local currency, using the average exchange rate for that country.
+        data_tests:
+          - not_null
 
       - name: currency
         data_type: string
-        description: ""
+        description: The local currency code that the proxy cost has been converted into.
 
       - name: cost_usd
         data_type: float64
-        description: ""
+        description: The original proxy cost in USD, rounded to two decimal places, before currency conversion.
+        data_tests:
+          - not_null
