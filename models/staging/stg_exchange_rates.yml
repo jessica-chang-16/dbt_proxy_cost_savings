@@ -9,8 +9,23 @@ sources:
     tables:
       - name: exchange_rates
 
-models: 
+models:
   - name: stg_exchange_rates
-    description: >
-      Cleaned and standardized exchange rate data
+    description: This model renames and stages the raw exchange rate data ingested from the US Treasury API, one row per country/currency exchange rate.
+    columns:
+      - name: country
+        data_type: string
+        description: The country the exchange rate applies to.
+        data_tests:
+          - not_null
+
+      - name: exchange_rate
+        data_type: float64
+        description: The exchange rate for converting USD to the country's local currency, renamed from the misspelled source column `exchange_rage`.
+        data_tests:
+          - not_null
+
+      - name: currency
+        data_type: string
+        description: The local currency code the exchange rate is quoted in.
       

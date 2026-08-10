@@ -8,19 +8,28 @@ sources:
     schema: analytics
     tables:
       - name: proxy_raw_data
-    
+
 models:
   - name: stg_proxy_data
-    description: >
-      Cleaned and standardized proxy data
+    description: This model renames and stages the raw proxy usage data, one row per retailer brand/proxy record, dropping rows with a missing proxy value.
     columns:
       - name: brand
-        description: >
-          The brand related to specific retailer.
+        data_type: string
+        description: The retailer brand, renamed from the source `Slug` column.
         data_tests:
           - not_null
+          - unique
+
       - name: proxy
-        description: >
-          Name of the third-party proxy that is being used on this specific retailer.
+        data_type: string
+        description: The proxy used for the retailer, renamed from `Proxy_request_all`. Rows where this is `#N/A` are filtered out.
         data_tests:
           - not_null
+
+      - name: region
+        data_type: string
+        description: The region associated with the retailer, defaulted to 'unassigned' when missing from the source.
+
+      - name: whitelisted
+        data_type: boolean
+        description: Whether the retailer brand/region is already whitelisted, carried over as-is from the source.

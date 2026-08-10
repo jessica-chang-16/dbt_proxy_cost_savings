@@ -6,15 +6,29 @@ models:
       This model identifies retailers whom are under established client relationships with our company but are using third party proxies.
       It joins the proxy exepction logic with client info and region info.
     columns:
+      - name: retailer
+        description: The name of the parent company retailer. This is also the account name.
+        data_tests:
+          - not_null
       - name: brand
-        description: >
-          The brand related to speicic retailer.
+        description: The brand related to speicic retailer.
+        data_tests:
+          - not_null
       - name: region_abv
-        description: >
-          The abbreviated region code.
+        description: The abbreviated region code.
+        data_tests:
+          - not_null
+      - name: region_name
+        description: The full name of a region associated to the abvreviated two characters.
+        data_tests:
+          - not_null
       - name: whitelisted
-        description: >
-          Tells whether the retailer is whitelisted or not.
+        description: Tells whether the retailer is whitelisted or not.
+        data_tests:
+          - not_null
       - name: proxy
-        description: >
-          Tells whether the retailer is currently using a proxy or not.
+        description: Tells whether the retailer is currently using a proxy or not.
+      - name: account_manager
+        description: The name of the account manager assigned to the retailer.
+      - name: csm
+        description: The name of the customer success manager assigned to the retailer.

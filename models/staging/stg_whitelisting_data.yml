@@ -11,16 +11,28 @@ sources:
 
 models:
   - name: stg_whitelisting_data
-    description: >
-      Cleaned and standardized client whitelisting data
+    description: Cleaned and standardized client whitelisting data
     columns:
+      - name: retailer
+        data_type: string
+        description: The retailer's company name, renamed from `Company_name`.
+
+      - name: brand
+        data_type: string
+        description: The brand portion of the slug, split out from `Slug` before the '-' delimiter.
+
+      - name: region_abv
+        data_type: string
+        description: The region abbreviation portion of the slug, split out from `Slug` after the '-' delimiter.
+
       - name: brand_region
-        description: >
-          The brand and region related to specific retailer.
+        data_type: string
+        description: The brand and region related to specific retailer.
         data_tests:
           - not_null
+
       - name: whitelisted
-        description: >
-          Tells whether or not the specific brand and region is whitelisted or not.
+        data_type: boolean
+        description: Tells whether or not the specific brand and region is whitelisted or not.
         data_tests:
           - not_null

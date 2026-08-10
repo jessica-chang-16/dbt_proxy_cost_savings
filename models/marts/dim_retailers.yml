@@ -2,12 +2,11 @@ version: 2
 
 models:
   - name: dim_retailers
-    description: >
-      This model identifies the one source of truth for retailer information.
+    description: This model identifies the one source of truth for retailer information.
     columns:
       - name: retailer
-        description: >
-          Contains the retailer name.
+        description: Contains the retailer name.
       - name: brand_region
-        description: >
-          Contains the individual region of the brand.
+        description: Contains the individual region of the brand.
+      - name: whitelisted
+        description: Whether the retailer's brand/region has already been IT whitelisted, carried over directly from the client whitelisting data.
