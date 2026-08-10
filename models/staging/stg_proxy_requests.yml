@@ -1,12 +1,8 @@
-
-#add columns, descriptions and tests
-
 version: 2
 
 sources: 
   - name: csv_proxy_requests
-    description: >
-      raw csv data file containing the amount of http requests to each retailer site.
+    description: raw csv data file containing the amount of http requests to each retailer site.
     database: cost-savings-tl
     schema: analytics
     tables: 
