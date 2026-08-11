@@ -46,7 +46,10 @@ jobs:
               location: US
               keyfile: \"{{ env_var('GOOGLE_APPLICATION_CREDENTIALS') }}\"
         "> ~/.dbt/profiles.yml
-    #7 Run the pipeline
+    #7 Run the packages & then the pipeline3
+    - name: dbt deps
+      run: dbt deps
+      
     - name: Execute dbt build
       run: dbt build --target ci
       env:
