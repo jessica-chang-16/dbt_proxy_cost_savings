@@ -12,6 +12,7 @@ whitelisting as (
 
 using_proxy as (
     SELECT
+        {{dbt_utils.generate_surrogate_key(['retailer','whitelisting.brand','region'])}} as retailer_brand_region_key,
         whitelisting.retailer AS retailer,
         whitelisting.brand AS brand,
         whitelisting.region_abv AS region,
@@ -24,6 +25,7 @@ using_proxy as (
 
 final as (
     SELECT
+        retailer_brand_region_key,
         retailer,
         brand,
         region,

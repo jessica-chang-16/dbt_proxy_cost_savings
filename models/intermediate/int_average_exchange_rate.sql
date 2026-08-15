@@ -24,8 +24,10 @@ average_rate_per_country AS (
 
 country_exchange_rates AS (
     SELECT
+    {{dbt_utils.generate_surrogate_key(['month','brand','arpc.region_abv'])}} as month_brand_key,
     pr.month AS month,
     pr.brand AS brand,
+    pr.region_abv AS region_abv,
     pr.num_requests AS num_http_requests,
     ROUND(pr.cost_usd,2) AS cost_usd,
     arpc.country AS country,
@@ -38,9 +40,12 @@ country_exchange_rates AS (
 
 proxy_cost_per_country AS (
     SELECT
+    month_brand_key,
     month,
     brand,
+    region_abv,
     country,
+    num_http_requests,
     ROUND(cost_usd * avg_exchange_rate,2) AS cost_country,
     currency,
     cost_usd
@@ -48,23 +53,29 @@ proxy_cost_per_country AS (
 ),
 
 add_proxy_cost_us AS (
-    SELECT 
+    SELECT
+    month_brand_key,
     month,
-    brand, 
-    CASE WHEN LOWER(SPLIT(brand, '-')[SAFE_OFFSET(1)]) = 'us' THEN 'United States' ELSE country END AS country,
-    CASE WHEN LOWER(SPLIT(brand, '-')[SAFE_OFFSET(1)]) = 'us' THEN cost_usd ELSE cost_country END AS cost_country,
-    CASE WHEN LOWER(SPLIT(brand, '-')[SAFE_OFFSET(1)]) = 'us' THEN 'Dollar'ELSE currency END AS currency,
+    brand,
+    region_abv,
+    num_http_requests,
+    CASE WHEN region_abv = 'us' THEN 'United States' ELSE country END AS country,
+    CASE WHEN region_abv = 'us' THEN cost_usd ELSE cost_country END AS cost_country,
+    CASE WHEN region_abv = 'us' THEN 'Dollar'ELSE currency END AS currency,
     cost_usd
     FROM proxy_cost_per_country
 ),
 
 add_proxy_cost_es AS (
-    SELECT 
+    SELECT
+    month_brand_key,
     month,
     brand,
-    CASE WHEN LOWER(SPLIT(brand, '-')[SAFE_OFFSET(1)]) = 'es' THEN 'Spain' ELSE country END AS country,
-    CASE WHEN LOWER(SPLIT(brand, '-')[SAFE_OFFSET(1)]) = 'es' THEN (cost_usd*0.88) ELSE cost_country END AS cost_country,
-    CASE WHEN LOWER(SPLIT(brand, '-')[SAFE_OFFSET(1)]) = 'es' THEN 'Euro'ELSE currency END AS currency,
+    region_abv,
+    num_http_requests,
+    CASE WHEN region_abv = 'es' THEN 'Spain' ELSE country END AS country,
+    CASE WHEN region_abv = 'es' THEN (cost_usd*0.88) ELSE cost_country END AS cost_country,
+    CASE WHEN region_abv = 'es' THEN 'Euro'ELSE currency END AS currency,
     cost_usd
     FROM add_proxy_cost_us
 ),
@@ -76,8 +87,11 @@ proxy_cost_all_countries AS (
 
 final AS (
     SELECT
+    month_brand_key,
     month,
     brand,
+    region_abv,
+    num_http_requests,
     country,
     cost_country,
     currency,

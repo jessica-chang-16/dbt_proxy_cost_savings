@@ -7,7 +7,7 @@ WITH base AS (
 casting AS (
     SELECT
     FORMAT_DATE('%B', DATETIME(date)) as month,
-    crawler_slug as brand,
+    SPLIT(crawler_slug,'-') [SAFE_OFFSET(0)] AS brand,
     SPLIT(crawler_slug,'-') [SAFE_OFFSET(1)] AS region_abv,
     proxy_type,
     http_requests as num_requests,

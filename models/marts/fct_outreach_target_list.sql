@@ -1,5 +1,6 @@
 WITH proxy_exception as (
     SELECT
+        retailer_brand_region_key,
         retailer,
         brand,
         region,
@@ -10,6 +11,7 @@ WITH proxy_exception as (
 
 client_info as (
     SELECT
+        pe.retailer_brand_region_key,
         pe.retailer as retailer,
         pe.brand as brand,
         pe.region as region,
@@ -25,6 +27,7 @@ client_info as (
 
 region_info as (
     SELECT
+        ci.retailer_brand_region_key as retailer_brand_region_key,
         ci.retailer as retailer,
         ci.brand as brand,
         ci.region as region,
@@ -40,6 +43,7 @@ region_info as (
 
 final as (
     SELECT
+        retailer_brand_region_key,
         retailer,
         brand,
         region as region_abv,
