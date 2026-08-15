@@ -1,0 +1,54 @@
+version: 2
+
+models:
+  - name: fct_cost_savings
+    description: This model aggregates proxy costs and request volume by month, brand, and region,
+      summing the per-crawl-session costs from int_average_exchange_rate up to a monthly
+      grain. It represents the potential cost savings if these proxy costs were eliminated
+      through IT whitelisting.
+    columns:
+      - name: month_brand_key
+        data_type: string
+        description: Surrogate key generated from month, brand, and region_abv, uniquely identifying a brand/region's proxy costs for a given month.
+        data_tests:
+          - not_null
+          - unique
+
+      - name: month
+        data_type: string
+        description: The month the proxy requests were made, carried over from the proxy request data.
+        data_tests:
+          - not_null
+
+      - name: brand
+        data_type: string
+        description: The retailer brand associated with the proxy requests.
+        data_tests:
+          - not_null
+
+      - name: region_abv
+        data_type: string
+        description: The abbreviated region code associated with the brand.
+        data_tests:
+          - not_null
+
+      - name: country
+        data_type: string
+        description: The country the proxy cost was converted into local currency for, matched via region abbreviation.
+        data_tests:
+          - not_null
+
+      - name: total_http_requests
+        data_type: int64
+        description: The total number of http requests sent via a third-party proxy for the brand/region in that month.
+
+      - name: total_og_currency_cost_savings
+        data_type: float64
+        description: The total proxy cost in the country's local ("original") currency for that brand/region/month, rounded to two decimal places. Represents the potential savings if the proxy expense were eliminated via whitelisting.
+        
+
+      - name: total_usd_cost_savings
+        data_type: float64
+        description: The total proxy cost in USD for that brand/region/month, rounded to two decimal places. Represents the potential savings if the proxy expense were eliminated via whitelisting.
+    
+
