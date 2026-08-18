@@ -13,8 +13,8 @@ models:
     description: cleaned and standardized proxy request amount per retailer
     columns:
       - name: month
-        data_type: string
-        description: The month in which each retailer has requested http request to the retailer site using a third-party proxy. The original data field has been converted from daily granularity to monthly granularity.
+        data_type: date
+        description: The first day of the month in which each retailer has requested http requests to the retailer site using a third-party proxy. The original data field has been truncated from daily granularity to monthly granularity.
         data_tests:
           - not_null
 

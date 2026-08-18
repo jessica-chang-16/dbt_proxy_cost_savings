@@ -1,0 +1,59 @@
+version: 2
+
+semantic_models:
+  - name: cost_savings
+    description: Semantic model on top of fct_cost_savings, exposing monthly proxy cost savings as queryable metrics and dimensions.
+    model: ref('fct_cost_savings')
+    defaults:
+      agg_time_dimension: cost_savings_month
+
+    entities:
+      - name: month_brand_key
+        type: primary
+
+    dimensions:
+      - name: cost_savings_month
+        type: time
+        expr: month
+        type_params:
+          time_granularity: month
+      - name: brand
+        type: categorical
+      - name: region_abv
+        type: categorical
+      - name: country
+        type: categorical
+
+    measures:
+      - name: total_http_requests
+        description: Total number of http requests sent via a third-party proxy.
+        agg: sum
+      - name: total_usd_cost_savings
+        description: Total proxy cost in USD, representing potential savings if eliminated via whitelisting.
+        agg: sum
+      - name: total_og_currency_cost_savings
+        description: Total proxy cost in local currency, representing potential savings if eliminated via whitelisting.
+        agg: sum
+
+metrics:
+  - name: total_cost_savings_usd
+    description: Total potential cost savings in USD from eliminating proxy usage via whitelisting.
+    type: simple
+    label: Total Cost Savings (USD)
+    type_params:
+      measure: total_usd_cost_savings
+
+  - name: total_http_requests
+    description: Total number of http requests sent via a third-party proxy.
+    type: simple
+    label: Total HTTP Requests
+    type_params:
+      measure: total_http_requests
+
+  - name: avg_savings_per_request
+    description: Average USD cost savings per proxied http request.
+    type: ratio
+    label: Avg Savings per Request (USD)
+    type_params:
+      numerator: total_cost_savings_usd
+      denominator: total_http_requests
