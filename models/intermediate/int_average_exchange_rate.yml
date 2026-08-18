@@ -6,8 +6,8 @@ models:
     description: This model will join the exchange rates of the different countries along with the proxy request amounts to determine exchange rate and cost per region for each crawl session.
     columns:
       - name: month
-        data_type: string
-        description: The month the proxy requests were made, carried over from the proxy request data.
+        data_type: date
+        description: The first day of the month the proxy requests were made, carried over from the proxy request data.
         data_tests:
           - not_null
 
