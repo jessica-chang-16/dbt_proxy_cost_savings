@@ -16,7 +16,7 @@ This project transforms a manual, error-prone gap analysis process into a fully 
     
 
 #### Data Architecture & Modeling:
-![Data lineage graph](cost_savings_data_lineage.png)
+![Data lineage graph](cost_savings_dag.png)
 
 This pipeline follows a modular, three-tier architecture designed for scalability and maintainability within BigQuery. 
 
