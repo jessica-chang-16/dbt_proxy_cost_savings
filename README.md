@@ -33,8 +33,10 @@ This pipeline follows a modular, three-tier architecture designed for scalabilit
   - Data Quality: Data integrity tests are enforced at the staging layer to catch formatting errors and nulls before they can corrupt downstream metrics.
   - Star Schema Design: Designed the final marts to isolate facts from descriptive dimensions, allowing for performance and streamlined architecture within BigQuery.
 
-#### Final Data Product: Stakeholder Dashboard:
-![Client Outreach Target List Dashboard](client_outreach_target_list.png)
+#### Final Data Product: Stakeholder Dashboard: [[Dashboard LINK]([path/to/your/screenshot.png](https://datastudio.google.com/s/mKKDStO6i0U))]
+
+![Client Outreach Target List Dashboard](client_outreach_list.png)
+![Client Outreach Target List Dashboard](total_cost_savings.png)
 
 #### Optimization of BI Layer:
 This dashboard simulates the final stakeholder handoff to the customer success team. The result of completing the data cleaning, joins and logic filtering in the upstream transformation layers, this Data Studio (Looker) dashboard requires zero custom calculated fields. 
