@@ -33,8 +33,7 @@ This pipeline follows a modular, three-tier architecture designed for scalabilit
   - Data Quality: Data integrity tests are enforced at the staging layer to catch formatting errors and nulls before they can corrupt downstream metrics.
   - Star Schema Design: Designed the final marts to isolate facts from descriptive dimensions, allowing for performance and streamlined architecture within BigQuery.
 
-#### Final Data Product: Stakeholder Dashboard: [[Dashboard LINK]([path/to/your/screenshot.png](https://datastudio.google.com/s/mKKDStO6i0U))]
-
+#### Final Data Product: Stakeholder Dashboard:
 ![Client Outreach Target List Dashboard](client_outreach_list.png)
 ![Client Outreach Target List Dashboard](total_cost_savings.png)
 
